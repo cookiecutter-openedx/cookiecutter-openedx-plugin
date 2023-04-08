@@ -17,5 +17,5 @@
 
 -c ./constraints.txt
 
-django-environ                  # used in example_grades for overrides to cookiecutter_plugin API
-django-extensions               # harel's recommended dev tools
+django-environ
+django-extensions

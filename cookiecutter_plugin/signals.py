@@ -46,7 +46,7 @@ def _signals_enabled() -> bool:
 """
 
 
-@receiver(user_logged_in, dispatch_uid="example_user_logged_in")
+@receiver(user_logged_in, dispatch_uid="cookiecutter_plugin_user_logged_in")
 def post_login(sender, request, user, **kwargs):  # lint-amnesty, pylint: disable=unused-argument
     if not _signals_enabled():
         return
@@ -54,7 +54,7 @@ def post_login(sender, request, user, **kwargs):  # lint-amnesty, pylint: disabl
     log.info("openedx_plugin received user_logged_in signal for {username}".format(username=user.username))
 
 
-@receiver(user_logged_out, dispatch_uid="example_user_logged_out")
+@receiver(user_logged_out, dispatch_uid="cookiecutter_plugin_user_logged_out")
 def post_logout(sender, request, user, **kwargs):  # lint-amnesty, pylint: disable=unused-argument
     if not _signals_enabled():
         return
@@ -62,7 +62,7 @@ def post_logout(sender, request, user, **kwargs):  # lint-amnesty, pylint: disab
     log.info("openedx_plugin received user_logged_out signal for {username}".format(username=user.username))
 
 
-@receiver(REGISTER_USER, dispatch_uid="example_REGISTER_USER")
+@receiver(REGISTER_USER, dispatch_uid="cookiecutter_plugin_REGISTER_USER")
 def register_user(sender, user, registration, **kwargs):  # pylint: disable=unused-argument
     if not _signals_enabled():
         return

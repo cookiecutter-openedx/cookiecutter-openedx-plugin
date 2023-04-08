@@ -139,7 +139,7 @@ class CookiecutterPluginConfig(AppConfig):
             return
 
         from . import signals  # pylint: disable=unused-import
-        from .__about__ import __version__
+        from ..__about__ import __version__
         from .waffle import waffle_init
         from .utils import PluginJSONEncoder
 

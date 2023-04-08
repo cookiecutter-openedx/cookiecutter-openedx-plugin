@@ -3,7 +3,7 @@ import os
 
 # Increment this version number to trigger a new release. See
 # CHANGELOG.md for information on the versioning scheme.
-__version__ = "0.2.0"
+__version__ = "0.1.0"
 
 # The version suffix will be appended to the actual version, separated by a
 # dash. Use this suffix to differentiate between the actual released version and
@@ -17,7 +17,7 @@ __version_suffix__ = ""
 # plugin directory. To avoid conflicts between multiple locally-installed
 # versions, if it is defined the version suffix will also be appended to the app
 # name.
-__app__ = os.environ.get("cookiecutter_openedx_plugin", "example-plugin")
+__app__ = os.environ.get("cookiecutter_openedx_plugin", "cookiecutter-plugin")
 
 # Package version, as installed by pip, does not include the version suffix.
 __package_version__ = __version__

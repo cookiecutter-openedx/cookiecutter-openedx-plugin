@@ -139,11 +139,10 @@ class CookiecutterPluginConfig(AppConfig):
             return
 
         from . import signals  # pylint: disable=unused-import
-        from ..__about__ import __version__
         from .waffle import waffle_init
         from .utils import PluginJSONEncoder
 
-        log.info("{label} {version} is ready.".format(label=self.label, version=__version__))
+        log.info("{label} is ready.".format(label=self.label))
         log.info(
             "{label} found the following Django signals: {signals}".format(
                 label=self.label,

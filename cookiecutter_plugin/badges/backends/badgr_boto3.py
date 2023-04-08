@@ -82,8 +82,16 @@ class BadgrBoto3Backend(BadgrBackend):
     def _create_badge(self, badge_class):
         """
         Create the badge class on Badgr.
+
+        badge_class - badges.BadgeClass(models.Model)
+        badge_class.image - models.ImageField(upload_to='badge_classes')
         """
-        image_filename = badge_class.image
+        if badge_class is None or badge_class.image is None:
+            log.error("either received None for badge_class or badge_class.image is None")
+            return
+
+        image_filename = badge_class.image.name
+
         boto3_uri = self._cookiecutter_boto3_uri(image_filename)
         response = requests.get(boto3_uri)
         if response.status_code != requests.codes.ok:

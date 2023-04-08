@@ -1,22 +1,13 @@
-# python stuff
-import logging
-import mimetypes
-import requests
+# coding=utf-8
+"""
+written by:     Lawrence McDaniel
+                https://lawrencemcdaniel.com
 
-# django stuff
-from django.conf import settings
-from django.core.validators import URLValidator
-from django.core.exceptions import ValidationError
+date:           mar-2023
 
-# openedx stuff
-from lms.djangoapps.badges.backends.badgr import BadgrBackend
-
-log = logging.getLogger(__name__)
-
-
-class BadgrBoto3Backend(BadgrBackend):
-    """
-    Understanding the problem that this backend solves. see: https://discuss.openedx.org/t/badgr-badging-support/8342
+usage:
+    resolves a configuration issue with Badgr badges when running Kubernetes.
+    see: https://discuss.openedx.org/t/badgr-badging-support/8342
 
     BadgrBackend._create_badge() assumes that the you are using the Django
     storages default backend of the Ubuntu file system. This will break
@@ -29,10 +20,12 @@ class BadgrBoto3Backend(BadgrBackend):
 
     The cause of this problem is pretty simple
     ------------------------------------------
-    1. the attribute value image.path is populated automatically in get_completion_badge() - see https://github.com/openedx/edx-platform/blob/open-release/olive.master/lms/djangoapps/badges/events/course_complete.py#L84
+    1. the attribute value image.path is populated automatically in get_completion_badge() -
+       see https://github.com/openedx/edx-platform/blob/open-release/olive.master/lms/djangoapps/badges/events/course_complete.py#L84       # noqa: B950
        an example value of image.path is 'badge_classes/course_complete_badges/badge-icon-png-22.png'
 
-    2. the image field itself is defined in models.py as image = models.ImageField(upload_to='badge_classes', validators=[validate_badge_image])
+    2. the image field itself is defined in models.py as
+       image = models.ImageField(upload_to='badge_classes', validators=[validate_badge_image])
        Meanwhile, models.ImageField defines its path property as 'return self.storage.path(self.name)'
        see: https://docs.djangoproject.com/en/2.1/_modules/django/db/models/fields/files/
 
@@ -50,8 +43,25 @@ class BadgrBoto3Backend(BadgrBackend):
 
     An example of the actual location of the same course completion badge when Cloudfront has not been enabled is:
         https://s3.us-east-1.amazonaws.com/smartlikefox-usa-prod-storage/badge_classes/course_complete_badges/badge-icon-png-22.png
-    """
+"""
 
+# python stuff
+import logging
+import mimetypes
+import requests
+
+# django stuff
+from django.conf import settings
+from django.core.validators import URLValidator
+from django.core.exceptions import ValidationError
+
+# openedx stuff
+from lms.djangoapps.badges.backends.badgr import BadgrBackend
+
+log = logging.getLogger(__name__)
+
+
+class BadgrBoto3Backend(BadgrBackend):
     def __init__(self):
         super().__init__()
         log.info("cookiecutter_plugin.badges.backends.badgr_boto3.BadgrBoto3Backend - ready.")
@@ -107,7 +117,7 @@ class BadgrBoto3Backend(BadgrBackend):
             return
 
         # ---------------------------------------------------------------------
-        # mcdaniel: everything following the http response is indended to match
+        # mcdaniel: everything following the http response is intended to match
         # the default badges backend exactly.
         # ---------------------------------------------------------------------
 
@@ -129,7 +139,7 @@ class BadgrBoto3Backend(BadgrBackend):
             badgr_server_slug = badgr_badge_class.get("entityId")
             badge_class.badgr_server_slug = badgr_server_slug
             badge_class.save()
-        except Exception as excep:  # pylint: disable=broad-except
+        except Exception as excep:  # noqa: E902
             log.error(
                 "Error on saving Badgr Server Slug of badge_class slug "
                 '"{0}" with response json "{1}" : {2}'.format(badge_class.slug, result.json(), excep)

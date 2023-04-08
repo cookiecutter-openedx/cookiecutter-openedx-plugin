@@ -52,6 +52,10 @@ class BadgrBoto3Backend(BadgrBackend):
         https://s3.us-east-1.amazonaws.com/smartlikefox-usa-prod-storage/badge_classes/course_complete_badges/badge-icon-png-22.png
     """
 
+    def __init__(self):
+        super().__init__()
+        log.info("cookiecutter_plugin.badges.backends.badgr_boto3.BadgrBoto3Backend - ready.")
+
     def _cookiecutter_boto3_uri(self, filename):
         """
         return a valid awscli URI pointing to the AWS S3 bucket root, preferaby via
@@ -86,6 +90,7 @@ class BadgrBoto3Backend(BadgrBackend):
         badge_class - badges.BadgeClass(models.Model)
         badge_class.image - models.ImageField(upload_to='badge_classes')
         """
+        log.info("cookiecutter_plugin.badges.backends.badgr_boto3._create_badge() - start")
         if badge_class is None or badge_class.image is None:
             log.error("either received None for badge_class or badge_class.image is None")
             return
@@ -129,3 +134,5 @@ class BadgrBoto3Backend(BadgrBackend):
                 "Error on saving Badgr Server Slug of badge_class slug "
                 '"{0}" with response json "{1}" : {2}'.format(badge_class.slug, result.json(), excep)
             )
+
+        log.info("cookiecutter_plugin.badges.backends.badgr_boto3._create_badge() - finish")

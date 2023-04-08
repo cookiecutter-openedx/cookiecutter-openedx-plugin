@@ -25,5 +25,4 @@ def plugin_settings(settings):
     Injects local settings into django settings
     """
 
-    settings.BADGING_BACKEND = 'cookiecutter_plugin.badges.backends.badgr_boto3.BadgrBoto3Backend'
-
+    settings.BADGING_BACKEND = "cookiecutter_plugin.badges.backends.badgr_boto3.BadgrBoto3Backend"

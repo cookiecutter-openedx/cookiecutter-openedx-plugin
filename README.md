@@ -7,7 +7,7 @@
 [![AGPL License](https://img.shields.io/github/license/overhangio/tutor.svg?style=flat-square)](https://www.gnu.org/licenses/agpl-3.0.en.html)
 [![hack.d Lawrence McDaniel](https://img.shields.io/badge/hack.d-Lawrence%20McDaniel-orange.svg)](https://lawrencemcdaniel.com)
 
-An open edx plugin that implements customizations for deployment to Kubernetes. Currently only implements a custom Badges backend that works with Amazon S3 Django storages backend.
+An [Open edX Plugin](https://blog.lawrencemcdaniel.com/getting-started-with-open-edx-plugin-architecture/) that implements customizations for deployment to [Kubernetes](https://kubernetes.io/). Currently only implements a [custom Badges backend](https://github.com/openedx/edx-platform/tree/master/lms/djangoapps/badges/backends) that is compatible with [django-storages backend for Amazon S3](https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html).
 
 ## Getting Started
 

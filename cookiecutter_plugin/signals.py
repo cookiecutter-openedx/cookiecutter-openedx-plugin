@@ -137,4 +137,3 @@ def certificate_revoked(certificate, **kwargs):
             payload=json.dumps(masked_dict(payload), cls=PluginJSONEncoder, indent=4)
         )
     )
-

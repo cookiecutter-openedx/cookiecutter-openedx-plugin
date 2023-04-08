@@ -4,7 +4,7 @@
 .PHONY: build requirements deps-update deps-init
 
 dev-db:
-	mysql -uroot -p < cookiecutter_plugin_example/scripts/init-db.sql
+	mysql -uroot -p < cookiecutter_openedx_plugin/scripts/init-db.sql
 
 dev-up:
 	brew services start mysql
@@ -19,8 +19,8 @@ django-server:
 
 django-migrate:
 	./manage.py migrate
-	./manage.py makemigrations cookiecutter_plugin_example
-	./manage.py migrate cookiecutter_plugin_example
+	./manage.py makemigrations cookiecutter_openedx_plugin
+	./manage.py migrate cookiecutter_openedx_plugin
 
 django-shell:
 	./manage.py shell_plus
@@ -68,7 +68,7 @@ build:
 
 	if [ -d "./build" ]; then sudo rm -r build; fi
 	if [ -d "./dist" ]; then sudo rm -r dist; fi
-	if [ -d "./cookiecutter_plugin_example.egg-info" ]; then sudo rm -r cookiecutter_plugin_example.egg-info; fi
+	if [ -d "./cookiecutter_openedx_plugin.egg-info" ]; then sudo rm -r cookiecutter_openedx_plugin.egg-info; fi
 
 	python3 -m build --sdist ./
 	python3 -m build --wheel ./

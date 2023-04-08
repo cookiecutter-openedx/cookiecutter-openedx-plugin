@@ -1,4 +1,4 @@
-# Open edX Plugin Examples
+# Cookiecutter Open edX Plugin
 
 [![Source code](https://img.shields.io/static/v1?logo=github&label=Git&style=flat-square&color=brightgreen&message=Source%20code)](https://github.com/cookiecutter-openedx/cookiecutter-openedx-plugin)
 [![Forums](https://img.shields.io/static/v1?logo=discourse&label=Forums&style=flat-square&color=000000&message=discuss.openedx.org)](https://discuss.openedx.org/tag/cookiecutter)

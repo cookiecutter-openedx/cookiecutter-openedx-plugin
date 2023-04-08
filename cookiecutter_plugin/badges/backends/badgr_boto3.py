@@ -47,7 +47,6 @@ usage:
 
 # python stuff
 import logging
-import mimetypes
 import requests
 
 # django stuff

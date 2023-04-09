@@ -24,7 +24,7 @@ build-backend = "setuptools.build_meta:__legacy__"
 #------------------------------------------------------------------------------
 [project]
 name = "cookiecutter-openedx-plugin"
-version = "0.1.0"
+version = "0.1.1"
 authors = [
   { name="Lawrence McDaniel", email="lpm0073@gmail.com" }
 ]
@@ -32,7 +32,7 @@ description = "An open edx plugin that implements customizations for deployment 
 readme = "README.md"
 requires-python = ">=3.8"
 classifiers = [
-    "Development Status :: 4 - Beta",
+    "Development Status :: 3 - Alpha",
     "Framework :: Django",
     "Framework :: Django :: 2.2",
     "Framework :: Django :: 3.0",
@@ -54,7 +54,7 @@ dependencies = [
   "django-environ"
 ]
 
-keywords = ["Python", "Django", "Open edX", "Plugin", "REST API"]
+keywords = ["Python", "Django", "Open edX", "Plugin"]
 
 [project.urls]
 Homepage = "https://github.com/cookiecutter-openedx/cookiecutter-openedx-plugin"

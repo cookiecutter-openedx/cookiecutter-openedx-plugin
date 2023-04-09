@@ -79,7 +79,7 @@ build:
 
 # -------------------------------------------------------------------------
 # upload to PyPi Test
-# https://test.pypi.org/project/cookiecutter-openedx-plugin/0.2.0/
+# https://test.pypi.org/project/cookiecutter-openedx-plugin/
 # -------------------------------------------------------------------------
 release-test:
 	make build

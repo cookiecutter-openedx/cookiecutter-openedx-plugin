@@ -11,7 +11,7 @@ An [Open edX Plugin](https://blog.lawrencemcdaniel.com/getting-started-with-open
 
 - Hooks for openedx Django Signals for 'user_logged_in', 'user_logged_out', 'register_user', 'course_enrollment_created', 'certificate_created' and more. Demonstrates both the legacy, and the newer methodology for subscribing to and listening for the signals.
 - Scaffolding for waffle flag setup, including Django model initializations. These are currently only used to enable Django Signals.
-- A [custom badges Badgr backend](https://github.com/openedx/edx-platform/tree/master/lms/djangoapps/badges/backends) that is compatible with [django-storages backend for Amazon S3](https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html)
+- A [custom badges backend](https://github.com/openedx/edx-platform/tree/master/lms/djangoapps/badges/backends) that is compatible with [django-storages backend for Amazon S3](https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html)
 
 ## Getting Started
 
@@ -21,19 +21,16 @@ See [Installing extra xblocks and requirements](https://docs.tutor.overhang.io/c
 
 ```bash
 tutor config save       # to ensure that tutor's root folder system has been created
+
+# OPTION 1: install as a PyPi package
+echo "cookiecutter-openedx-plugin==0.1.1" >> "$(tutor config printroot)/env/build/openedx/requirements/private.txt"
+
+# OPTION 2: install as an editable requirement
 echo "git+https://github.com/cookiecutter-openedx/cookiecutter-openedx-plugin.git" >> "$(tutor config printroot)/env/build/openedx/requirements/private.txt"
+
 cat "$(tutor config printroot)/env/build/openedx/requirements/private.txt"
 tutor images build openedx
 tutor local quickstart
-
-# you'll also need to run this on your very first install
-# -----------------------------------------------------------------------------
-
-# run migrations
-tutor local run lms ./manage.py lms makemigrations
-tutor local run lms ./manage.py lms migrate
-tutor local run cms ./manage.py cms makemigrations
-tutor local run cms ./manage.py cms migrate
 ```
 
 ### Documentation

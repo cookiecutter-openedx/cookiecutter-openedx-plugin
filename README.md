@@ -23,7 +23,7 @@ See [Installing extra xblocks and requirements](https://docs.tutor.overhang.io/c
 tutor config save       # to ensure that tutor's root folder system has been created
 
 # OPTION 1: install as a PyPi package
-echo "cookiecutter-openedx-plugin==0.1.1" >> "$(tutor config printroot)/env/build/openedx/requirements/private.txt"
+echo "cookiecutter-openedx-plugin>=0.1.2" >> "$(tutor config printroot)/env/build/openedx/requirements/private.txt"
 
 # OPTION 2: install as an editable requirement
 echo "-e git+https://github.com/cookiecutter-openedx/cookiecutter-openedx-plugin.git" >> "$(tutor config printroot)/env/build/openedx/requirements/private.txt"
@@ -31,6 +31,18 @@ echo "-e git+https://github.com/cookiecutter-openedx/cookiecutter-openedx-plugin
 cat "$(tutor config printroot)/env/build/openedx/requirements/private.txt"
 tutor images build openedx
 tutor local quickstart
+```
+
+### Install using Cookiecutter Github Actions Workflow
+
+Add the following to your [Cookiecutter Github Actions Build workflow](https://github.com/cookiecutter-openedx/cookiecutter-openedx-devops/blob/main/%7B%7Bcookiecutter.github_repo_name%7D%7D/.github/workflows/build-openedx.yml)
+
+```yaml
+      - name: Add cookiecutter-openedx-plugin
+        uses: openedx-actions/tutor-plugin-build-openedx-add-requirement
+        with:
+          pip-package: cookiecutter-openedx-plugin
+          pip-package-version: ">=0.1.2"
 ```
 
 ### Documentation

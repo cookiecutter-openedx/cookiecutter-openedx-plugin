@@ -7,7 +7,11 @@
 [![AGPL License](https://img.shields.io/github/license/overhangio/tutor.svg?style=flat-square)](https://www.gnu.org/licenses/agpl-3.0.en.html)
 [![hack.d Lawrence McDaniel](https://img.shields.io/badge/hack.d-Lawrence%20McDaniel-orange.svg)](https://lawrencemcdaniel.com)
 
-An [Open edX Plugin](https://blog.lawrencemcdaniel.com/getting-started-with-open-edx-plugin-architecture/) that implements customizations for deployment to [Kubernetes](https://kubernetes.io/). Currently only implements a [custom Badges backend](https://github.com/openedx/edx-platform/tree/master/lms/djangoapps/badges/backends) that is compatible with [django-storages backend for Amazon S3](https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html).
+An [Open edX Plugin](https://blog.lawrencemcdaniel.com/getting-started-with-open-edx-plugin-architecture/) that implements customizations for deployment to [Kubernetes](https://kubernetes.io/). Implements the following:
+
+- Hooks for openedx Django Signals for 'user_logged_in', 'user_logged_out', 'register_user', 'course_enrollment_created', 'certificate_created' and more. Demonstrates both the legacy, and the newer methodology for subscribing to and listening for the signals.
+- Scaffolding for waffle flag setup, including Django model initializations. These are currently only used to enable Django Signals.
+- A [custom badges Badgr backend](https://github.com/openedx/edx-platform/tree/master/lms/djangoapps/badges/backends) that is compatible with [django-storages backend for Amazon S3](https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html)
 
 ## Getting Started
 

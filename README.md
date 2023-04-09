@@ -26,7 +26,7 @@ tutor config save       # to ensure that tutor's root folder system has been cre
 echo "cookiecutter-openedx-plugin==0.1.1" >> "$(tutor config printroot)/env/build/openedx/requirements/private.txt"
 
 # OPTION 2: install as an editable requirement
-echo "git+https://github.com/cookiecutter-openedx/cookiecutter-openedx-plugin.git" >> "$(tutor config printroot)/env/build/openedx/requirements/private.txt"
+echo "-e git+https://github.com/cookiecutter-openedx/cookiecutter-openedx-plugin.git" >> "$(tutor config printroot)/env/build/openedx/requirements/private.txt"
 
 cat "$(tutor config printroot)/env/build/openedx/requirements/private.txt"
 tutor images build openedx

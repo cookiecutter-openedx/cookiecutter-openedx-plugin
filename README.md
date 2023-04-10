@@ -42,7 +42,7 @@ Add the following to your [Cookiecutter Github Actions Build workflow](https://g
         uses: openedx-actions/tutor-plugin-build-openedx-add-requirement
         with:
           pip-package: cookiecutter-openedx-plugin
-          pip-package-version: ">=0.1.3"
+          pip-package-version: "0.1.3"
 ```
 
 ### Documentation
@@ -59,11 +59,11 @@ We welcome contributions! cookiecutter-openedx-plugin is part of the [cookiecutt
 
 ### Getting Started With Local development
 
-* Use the same virtual environment that you use for edx-platform
-* Ensure that your Python interpreter to 3.8x
-* install black: <https://pypi.org/project/black/>
-* install flake8: <https://flake8.pycqa.org/en/latest/>
-* install flake8-coding: <https://pypi.org/project/flake8-coding/>
+- Use the same virtual environment that you use for edx-platform
+- Ensure that your Python interpreter to 3.8x
+- install black: <https://pypi.org/project/black/>
+- install flake8: <https://flake8.pycqa.org/en/latest/>
+- install flake8-coding: <https://pypi.org/project/flake8-coding/>
 
 ```bash
 # Run these from within your edx-platform virtual environment
@@ -85,17 +85,17 @@ pre-commit install
 
 #### Local development good practices
 
-* run `black` on modified code before committing.
-* run `flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics`
-* run `flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics`
-* run `pre-commit run --all-files` before pushing. see: <https://pre-commit.com/>
+- run `black` on modified code before committing.
+- run `flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics`
+- run `flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics`
+- run `pre-commit run --all-files` before pushing. see: <https://pre-commit.com/>
 
 #### edx-platform dependencies
 
 To avoid freaky version conflicts in prod it's a good idea to install all of the edx-platform requirements to your local dev virtual environment.
 
-* requirements/edx/base.txt
-* requirements/edx/develop.txt,
-* requirements/edx/testing.txt
+- requirements/edx/base.txt
+- requirements/edx/develop.txt,
+- requirements/edx/testing.txt
 
 At a minimum this will give you the full benefit of your IDE's linter.

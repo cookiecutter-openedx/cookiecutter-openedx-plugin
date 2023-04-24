@@ -26,7 +26,7 @@ from .waffle import waffle_switches, SIGNALS
 
 
 log = logging.getLogger(__name__)
-log.info("openedx_plugin.signals loaded")
+log.info("cookiecutter_plugin.signals loaded")
 
 
 def _signals_enabled() -> bool:
@@ -51,7 +51,7 @@ def post_login(sender, request, user, **kwargs):  # lint-amnesty, pylint: disabl
     if not _signals_enabled():
         return
 
-    log.info("openedx_plugin received user_logged_in signal for {username}".format(username=user.username))
+    log.info("cookiecutter_plugin received user_logged_in signal for {username}".format(username=user.username))
 
 
 @receiver(user_logged_out, dispatch_uid="cookiecutter_plugin_user_logged_out")
@@ -59,7 +59,7 @@ def post_logout(sender, request, user, **kwargs):  # lint-amnesty, pylint: disab
     if not _signals_enabled():
         return
 
-    log.info("openedx_plugin received user_logged_out signal for {username}".format(username=user.username))
+    log.info("cookiecutter_plugin received user_logged_out signal for {username}".format(username=user.username))
 
 
 @receiver(REGISTER_USER, dispatch_uid="cookiecutter_plugin_REGISTER_USER")
@@ -67,7 +67,7 @@ def register_user(sender, user, registration, **kwargs):  # pylint: disable=unus
     if not _signals_enabled():
         return
 
-    log.info("openedx_plugin received REGISTER_USER signal for {username}".format(username=user.username))
+    log.info("cookiecutter_plugin received REGISTER_USER signal for {username}".format(username=user.username))
 
 
 """
@@ -115,7 +115,7 @@ def student_registration_completed(user, **kwargs):  # pylint: disable=unused-ar
     }
 
     log.info(
-        "openedx_plugin received STUDENT_REGISTRATION_COMPLETED signal for {payload}".format(
+        "cookiecutter_plugin received STUDENT_REGISTRATION_COMPLETED signal for {payload}".format(
             payload=json.dumps(masked_dict(payload), cls=PluginJSONEncoder, indent=4)
         )
     )
@@ -142,7 +142,7 @@ def session_login_completed(user, **kwargs):
     }
 
     log.info(
-        "openedx_plugin received SESSION_LOGIN_COMPLETED signal for {payload}".format(
+        "cookiecutter_plugin received SESSION_LOGIN_COMPLETED signal for {payload}".format(
             payload=json.dumps(masked_dict(payload), cls=PluginJSONEncoder, indent=4)
         )
     )
@@ -193,7 +193,7 @@ def course_enrollment_created(enrollment, **kwargs):
     }
 
     log.info(
-        "openedx_plugin received COURSE_ENROLLMENT_CREATED signal for {payload}".format(
+        "cookiecutter_plugin received COURSE_ENROLLMENT_CREATED signal for {payload}".format(
             payload=json.dumps(masked_dict(payload), cls=PluginJSONEncoder, indent=4)
         )
     )
@@ -223,7 +223,7 @@ def course_enrollment_changed(enrollment, **kwargs):
     }
 
     log.info(
-        "openedx_plugin received COURSE_ENROLLMENT_CREATED signal for {payload}".format(
+        "cookiecutter_plugin received COURSE_ENROLLMENT_CREATED signal for {payload}".format(
             payload=json.dumps(masked_dict(payload), cls=PluginJSONEncoder, indent=4)
         )
     )
@@ -253,7 +253,7 @@ def course_unenrollment_completed(enrollment, **kwargs):
     }
 
     log.info(
-        "openedx_plugin received COURSE_UNENROLLMENT_COMPLETED signal for {payload}".format(
+        "cookiecutter_plugin received COURSE_UNENROLLMENT_COMPLETED signal for {payload}".format(
             payload=json.dumps(masked_dict(payload), cls=PluginJSONEncoder, indent=4)
         )
     )
@@ -283,7 +283,7 @@ def certificate_created(certificate, **kwargs):
     }
 
     log.info(
-        "openedx_plugin received CERTIFICATE_CREATED signal for {payload}".format(
+        "cookiecutter_plugin received CERTIFICATE_CREATED signal for {payload}".format(
             payload=json.dumps(masked_dict(payload), cls=PluginJSONEncoder, indent=4)
         )
     )
@@ -313,7 +313,7 @@ def certificate_changed(certificate, **kwargs):
     }
 
     log.info(
-        "openedx_plugin received CERTIFICATE_CHANGED signal for {payload}".format(
+        "cookiecutter_plugin received CERTIFICATE_CHANGED signal for {payload}".format(
             payload=json.dumps(masked_dict(payload), cls=PluginJSONEncoder, indent=4)
         )
     )
@@ -343,7 +343,7 @@ def certificate_revoked(certificate, **kwargs):
     }
 
     log.info(
-        "openedx_plugin received CERTIFICATE_REVOKED signal for {payload}".format(
+        "cookiecutter_plugin received CERTIFICATE_REVOKED signal for {payload}".format(
             payload=json.dumps(masked_dict(payload), cls=PluginJSONEncoder, indent=4)
         )
     )
@@ -389,7 +389,7 @@ def persistent_grade_summary_changed(grade, **kwargs):
         "event_metadata": event_metadata,
     }
     log.info(
-        "openedx_plugin received COURSE_ENROLLMENT_CREATED signal for {payload}".format(
+        "cookiecutter_plugin received COURSE_ENROLLMENT_CREATED signal for {payload}".format(
             payload=json.dumps(masked_dict(payload), cls=PluginJSONEncoder, indent=4)
         )
     )
@@ -419,7 +419,7 @@ def cohort_membership_changed(cohort, **kwargs):
     }
 
     log.info(
-        "openedx_plugin received COHORT_MEMBERSHIP_CHANGED signal for {payload}".format(
+        "cookiecutter_plugin received COHORT_MEMBERSHIP_CHANGED signal for {payload}".format(
             payload=json.dumps(masked_dict(payload), cls=PluginJSONEncoder, indent=4)
         )
     )
@@ -439,4 +439,4 @@ def course_discussions_changed(configuration, **kwargs):  # lint-amnesty, pylint
     if not _signals_enabled():
         return
 
-    log.info("openedx_plugin received COURSE_DISCUSSIONS_CHANGED signal")
+    log.info("cookiecutter_plugin received COURSE_DISCUSSIONS_CHANGED signal")

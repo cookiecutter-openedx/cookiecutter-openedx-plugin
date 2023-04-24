@@ -17,7 +17,7 @@ __version_suffix__ = ""
 # plugin directory. To avoid conflicts between multiple locally-installed
 # versions, if it is defined the version suffix will also be appended to the app
 # name.
-__app__ = os.environ.get("cookiecutter_openedx_plugin", "cookiecutter_plugin")
+__app__ = os.environ.get("cookiecutter_plugin", "cookiecutter_plugin")
 
 # Package version, as installed by pip, does not include the version suffix.
 __package_version__ = __version__
